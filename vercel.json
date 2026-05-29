@@ -1,11 +1,10 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "framework": null,
-  "buildCommand": "echo 'Vercel hosts only /api functions for this project; static site is served from Plesk.'",
-  "outputDirectory": ".vercel-empty",
+  "buildCommand": "echo no-build",
+  "outputDirectory": "public",
   "functions": {
     "api/chat.ts": {
-      "runtime": "@vercel/node@5.1.16",
       "maxDuration": 30
     }
   }
