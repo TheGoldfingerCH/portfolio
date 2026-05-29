@@ -1,4 +1,4 @@
-import { defaultLocale, locales, ui, type Locale } from './ui';
+import { defaultLocale, locales, ui, type Locale } from './ui.js';
 
 export function getLocaleFromUrl(url: URL): Locale {
   const [, first] = url.pathname.split('/');

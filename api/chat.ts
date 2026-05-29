@@ -1,7 +1,7 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
 import { GoogleGenAI } from '@google/genai';
-import { buildSystemPrompt } from '../src/lib/chatContext';
-import { locales, type Locale } from '../src/i18n/ui';
+import { buildSystemPrompt } from '../src/lib/chatContext.js';
+import { locales, type Locale } from '../src/i18n/ui.js';
 
 type ChatMessage = {
   role: 'user' | 'assistant';

@@ -1,4 +1,4 @@
-import type { Locale } from './experiences';
+import type { Locale } from './experiences.js';
 
 export type LanguageLevel = {
   code: string;

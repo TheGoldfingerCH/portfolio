@@ -1,9 +1,9 @@
-import { experiences } from '../data/experiences';
-import { education } from '../data/education';
-import { projects } from '../data/projects';
-import { skills } from '../data/skills';
-import { profile } from '../data/profile';
-import type { Locale } from '../i18n/ui';
+import { experiences } from '../data/experiences.js';
+import { education } from '../data/education.js';
+import { projects } from '../data/projects.js';
+import { skills } from '../data/skills.js';
+import { profile } from '../data/profile.js';
+import type { Locale } from '../i18n/ui.js';
 
 function formatSkills(): string {
   return skills
