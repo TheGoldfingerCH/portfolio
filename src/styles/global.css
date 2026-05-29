@@ -1,0 +1,353 @@
+@import "tailwindcss";
+
+@theme {
+  --color-accent: #6366f1;
+  --color-accent-soft: #818cf8;
+  --color-accent-2: #a855f7;
+  --color-accent-3: #06b6d4;
+  --color-accent-4: #f59e0b;
+  --color-accent-5: #10b981;
+  --color-accent-6: #ec4899;
+
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-display: "Space Grotesk", "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+
+/* Dark theme tokens (default) */
+:root,
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --color-bg: #0a0a0a;
+  --color-bg-soft: #111111;
+  --color-surface: #161616;
+  --color-surface-2: #1d1d1d;
+  --color-border: #262626;
+  --color-border-strong: #3a3a3a;
+  --color-text: #f5f5f5;
+  --color-text-muted: #a3a3a3;
+  --color-text-soft: #d4d4d4;
+  --color-accent-glow: rgba(99, 102, 241, 0.18);
+  --color-dot: rgba(255, 255, 255, 0.045);
+  --color-chip-bg: rgba(255, 255, 255, 0.04);
+  --color-hero-glow-1: rgba(99, 102, 241, 0.20);
+  --color-hero-glow-2: rgba(168, 85, 247, 0.14);
+  --gradient-title: linear-gradient(135deg, #f5f5f5 0%, #c4b5fd 55%, #818cf8 100%);
+}
+
+/* Light theme tokens */
+:root[data-theme="light"] {
+  color-scheme: light;
+  --color-bg: #fafafa;
+  --color-bg-soft: #f4f4f5;
+  --color-surface: #ffffff;
+  --color-surface-2: #f8f8fa;
+  --color-border: #e5e7eb;
+  --color-border-strong: #d4d4d8;
+  --color-text: #0a0a0a;
+  --color-text-muted: #525252;
+  --color-text-soft: #262626;
+  --color-accent-glow: rgba(99, 102, 241, 0.20);
+  --color-dot: rgba(15, 23, 42, 0.055);
+  --color-chip-bg: rgba(99, 102, 241, 0.06);
+  --color-hero-glow-1: rgba(99, 102, 241, 0.18);
+  --color-hero-glow-2: rgba(236, 72, 153, 0.10);
+  --gradient-title: linear-gradient(135deg, #0a0a0a 0%, #4f46e5 60%, #a855f7 100%);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  transition: background-color 250ms ease, color 250ms ease;
+}
+
+::selection {
+  background: var(--color-accent);
+  color: white;
+}
+
+/* Subtle radial backdrop used on the hero */
+.bg-hero-grid {
+  background-image:
+    radial-gradient(circle at 18% 0%, var(--color-hero-glow-1), transparent 45%),
+    radial-gradient(circle at 82% 30%, var(--color-hero-glow-2), transparent 50%),
+    linear-gradient(180deg, var(--color-bg) 0%, var(--color-bg-soft) 100%);
+}
+
+/* Dotted background used behind Studies / Skills */
+.bg-dotted {
+  background-image: radial-gradient(var(--color-dot) 1px, transparent 1px);
+  background-size: 18px 18px;
+}
+
+.section {
+  padding-block: clamp(4rem, 8vw, 8rem);
+}
+
+.container-page {
+  width: 100%;
+  margin-inline: auto;
+  max-width: 72rem;
+  padding-inline: 1.25rem;
+}
+
+@media (min-width: 768px) {
+  .container-page {
+    padding-inline: 2rem;
+  }
+}
+
+/* Animated fade-up — applied on initial render */
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.fade-up { animation: fade-up 0.7s ease-out both; }
+
+/* Scroll-triggered reveal (toggled by IntersectionObserver) */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 600ms ease, transform 600ms ease;
+  will-change: opacity, transform;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Gradient title text — colors switch with theme */
+.text-gradient {
+  background-image: var(--gradient-title);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+/* Card surface */
+.card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 1rem;
+  transition: border-color 200ms ease, transform 200ms ease, background 200ms ease, box-shadow 200ms ease;
+}
+.card:hover {
+  border-color: rgba(129, 140, 248, 0.45);
+  background: var(--color-surface-2);
+  box-shadow: 0 10px 30px -15px var(--color-accent-glow);
+}
+
+/* Category card — accepts an inline --tint color for the accent bar/label */
+.cat-card {
+  position: relative;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 1rem;
+  padding: 1.25rem;
+  overflow: hidden;
+  transition: border-color 200ms ease, transform 200ms ease;
+}
+.cat-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 2px;
+  background: var(--tint, var(--color-accent));
+  opacity: 0.85;
+}
+.cat-card::after {
+  content: "";
+  position: absolute;
+  top: -40%;
+  right: -30%;
+  width: 240px;
+  height: 240px;
+  background: radial-gradient(circle, var(--tint, var(--color-accent)) 0%, transparent 60%);
+  opacity: 0.06;
+  pointer-events: none;
+}
+.cat-card:hover {
+  border-color: color-mix(in oklab, var(--tint, var(--color-accent)) 45%, var(--color-border));
+  transform: translateY(-2px);
+}
+.cat-label {
+  color: var(--tint, var(--color-accent));
+  font-size: 0.7rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+/* Pill / chip */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.25rem 0.65rem;
+  border-radius: 9999px;
+  background: rgba(99, 102, 241, 0.08);
+  border: 1px solid rgba(99, 102, 241, 0.25);
+  color: var(--color-accent-soft);
+  font-size: 0.8rem;
+  letter-spacing: 0.01em;
+}
+:root[data-theme="light"] .chip {
+  color: #4f46e5;
+}
+
+.chip-muted {
+  background: var(--color-chip-bg);
+  border-color: var(--color-border);
+  color: var(--color-text-muted);
+}
+
+/* Tech chip — small icon + name, tinted by category */
+.tech-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.3rem 0.65rem;
+  border-radius: 0.6rem;
+  background: var(--color-surface-2);
+  border: 1px solid var(--color-border);
+  font-size: 0.8rem;
+  color: var(--color-text);
+  transition: border-color 150ms ease, background 150ms ease;
+}
+.tech-chip:hover {
+  border-color: color-mix(in oklab, var(--tint, var(--color-accent)) 60%, var(--color-border));
+  background: var(--color-surface);
+}
+.tech-chip svg {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+}
+
+/* Soft-skill chip — rainbow rotation via index */
+.soft-chip {
+  display: inline-flex;
+  padding: 0.35rem 0.85rem;
+  border-radius: 9999px;
+  background: color-mix(in oklab, var(--tint, var(--color-accent)) 12%, transparent);
+  border: 1px solid color-mix(in oklab, var(--tint, var(--color-accent)) 40%, var(--color-border));
+  color: var(--color-text);
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: transform 150ms ease;
+}
+.soft-chip:hover { transform: translateY(-1px); }
+
+/* Button styles */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.7rem 1.1rem;
+  border-radius: 0.75rem;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: transform 150ms ease, background 200ms ease, border-color 200ms ease, box-shadow 200ms ease;
+  border: 1px solid transparent;
+  white-space: nowrap;
+}
+.btn-primary {
+  background: var(--color-accent);
+  color: white;
+  box-shadow: 0 10px 30px -10px var(--color-accent-glow);
+}
+.btn-primary:hover {
+  background: var(--color-accent-soft);
+  transform: translateY(-1px);
+}
+.btn-ghost {
+  background: transparent;
+  color: var(--color-text);
+  border-color: var(--color-border);
+}
+.btn-ghost:hover {
+  background: var(--color-surface);
+  border-color: color-mix(in oklab, var(--color-accent) 50%, var(--color-border));
+}
+
+/* Link */
+.link {
+  color: var(--color-accent-soft);
+  transition: color 150ms ease;
+}
+.link:hover { color: var(--color-text); }
+
+/* Section eyebrow */
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 0.75rem;
+  color: var(--color-accent-soft);
+  font-weight: 600;
+}
+:root[data-theme="light"] .eyebrow { color: #4f46e5; }
+
+/* Timeline */
+.timeline-dot {
+  width: 0.7rem;
+  height: 0.7rem;
+  border-radius: 9999px;
+  background: var(--color-accent);
+  box-shadow: 0 0 0 4px color-mix(in oklab, var(--color-accent) 25%, transparent);
+}
+
+/* Company avatar (initials) */
+.company-avatar {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 0.75rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: white;
+  flex-shrink: 0;
+  background: linear-gradient(135deg, var(--tint, var(--color-accent)) 0%, color-mix(in oklab, var(--tint, var(--color-accent)) 60%, #000) 100%);
+  box-shadow: 0 6px 18px -8px color-mix(in oklab, var(--tint, var(--color-accent)) 70%, transparent);
+}
+
+/* Theme toggle button */
+.theme-toggle {
+  position: relative;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 0.5rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  color: var(--color-text-soft);
+  transition: border-color 150ms ease, color 150ms ease, transform 150ms ease;
+}
+.theme-toggle:hover {
+  color: var(--color-text);
+  border-color: var(--color-accent-soft);
+  transform: translateY(-1px);
+}
+.theme-toggle svg { width: 16px; height: 16px; }
+.theme-toggle .icon-sun { display: none; }
+.theme-toggle .icon-moon { display: block; }
+:root[data-theme="light"] .theme-toggle .icon-sun { display: block; }
+:root[data-theme="light"] .theme-toggle .icon-moon { display: none; }
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .fade-up, .reveal { animation: none; transition: none; opacity: 1; transform: none; }
+}

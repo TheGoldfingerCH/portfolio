@@ -1,0 +1,9 @@
+---
+import ChatBot from './ChatBot';
+import type { Locale } from '../i18n/ui';
+
+interface Props { locale: Locale; }
+const { locale } = Astro.props;
+---
+
+<ChatBot client:idle locale={locale} />

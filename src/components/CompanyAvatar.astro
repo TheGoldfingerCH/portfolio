@@ -1,0 +1,54 @@
+---
+// Square avatar that tries to load the institution / company logo from the
+// Google favicon service and falls back to a gradient with initials when
+// either the domain is missing or the image fails to load.
+
+interface Props {
+  /** Company / institution display name — used to derive initials. */
+  name: string;
+  /** Stable id used to pick a deterministic tint. */
+  id: string;
+  /** Domain for the favicon (e.g. `lewagon.com`). */
+  domain?: string;
+  /** Local logo URL (e.g. `/companies/sawi.png`). Takes precedence over `domain`. */
+  logoSrc?: string;
+  /** Size in pixels. Default matches `.company-avatar` (40px). */
+  size?: number;
+}
+
+const { name, id, domain, logoSrc, size = 40 } = Astro.props;
+
+const palette = ['#6366f1', '#a855f7', '#06b6d4', '#10b981', '#f59e0b', '#ec4899', '#3b82f6'];
+function tintFor(seed: string) {
+  let hash = 0;
+  for (let i = 0; i < seed.length; i++) hash = (hash * 31 + seed.charCodeAt(i)) >>> 0;
+  return palette[hash % palette.length];
+}
+function initials(rawName: string) {
+  const cleaned = rawName.replace(/\(.*?\)/g, '').trim();
+  const parts = cleaned.split(/[\s\/-]+/).filter(Boolean);
+  if (parts.length === 1) return parts[0].slice(0, 2).toUpperCase();
+  return (parts[0][0] + parts[parts.length - 1][0]).toUpperCase();
+}
+
+const tint = tintFor(id);
+const logoUrl = logoSrc ?? (domain ? `https://www.google.com/s2/favicons?domain=${domain}&sz=128` : null);
+const dim = `${size}px`;
+---
+
+<span
+  class="company-avatar relative overflow-hidden shrink-0"
+  style={`--tint: ${tint}; width: ${dim}; height: ${dim};`}
+>
+  <span>{initials(name)}</span>
+  {logoUrl && (
+    <img
+      src={logoUrl}
+      alt={`${name} logo`}
+      class="absolute inset-0 w-full h-full object-contain p-1.5 bg-white"
+      loading="lazy"
+      decoding="async"
+      onerror="this.style.display='none'"
+    />
+  )}
+</span>

@@ -1,0 +1,20 @@
+---
+import type { Locale } from '../i18n/ui';
+import { useTranslations } from '../i18n/utils';
+
+interface Props { locale: Locale; }
+const { locale } = Astro.props;
+const t = useTranslations(locale);
+---
+
+<section id="about" class="section">
+  <div class="container-page grid grid-cols-1 md:grid-cols-12 gap-10">
+    <div class="md:col-span-4">
+      <p class="eyebrow">01</p>
+      <h2 class="font-display text-3xl md:text-4xl font-semibold mt-2 tracking-tight">{t.sections.about.title}</h2>
+    </div>
+    <div class="md:col-span-8 space-y-5 text-[color:var(--color-text-soft)] text-lg leading-relaxed reveal">
+      {t.sections.about.body.map((paragraph) => <p>{paragraph}</p>)}
+    </div>
+  </div>
+</section>
