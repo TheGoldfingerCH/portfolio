@@ -6,7 +6,6 @@ import { useTranslations } from '../i18n/utils';
 interface Props { locale: Locale; }
 const { locale } = Astro.props;
 const t = useTranslations(locale);
-const cv = profile.links.cv[locale];
 ---
 
 <section class="bg-hero-grid relative overflow-hidden">
@@ -28,7 +27,6 @@ const cv = profile.links.cv[locale];
       <div class="mt-8 flex flex-wrap gap-3">
         <a href="#contact" class="btn btn-primary">{t.hero.ctaContact}</a>
         <a href="#projects" class="btn btn-ghost">{t.hero.ctaProjects}</a>
-        <a href={cv} target="_blank" rel="noreferrer noopener" class="btn btn-ghost">{t.hero.ctaCv}</a>
       </div>
 
       <div class="mt-10 flex items-center gap-5 text-sm text-[color:var(--color-text-muted)]">
