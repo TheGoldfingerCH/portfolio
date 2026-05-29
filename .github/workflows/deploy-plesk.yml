@@ -49,13 +49,12 @@ jobs:
           # Create a fresh worktree dedicated to the deploy branch.
           DEPLOY_DIR="$(mktemp -d)"
           git worktree add --detach "$DEPLOY_DIR"
-          (cd "$DEPLOY_DIR" && rm -rf ./*) || true
+
+          # Wipe every file/folder in the worktree EXCEPT the worktree's .git pointer.
+          find "$DEPLOY_DIR" -mindepth 1 -maxdepth 1 -not -name '.git' -exec rm -rf {} +
 
           # Copy the built site into it (flatten dist/ to the root).
           cp -R dist/. "$DEPLOY_DIR"/
-
-          # Tell GitHub Pages / Plesk to skip Jekyll-style processing of the _astro folder.
-          touch "$DEPLOY_DIR/.nojekyll"
 
           cd "$DEPLOY_DIR"
           git checkout -B deploy
