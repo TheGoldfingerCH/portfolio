@@ -114,3 +114,5 @@ vercel.json           # Config Vercel (function uniquement, pas de build)
 - **Libellés UI** : `src/i18n/ui.ts`
 
 Le system prompt du chatbot est **généré automatiquement** depuis `src/data/*` via `src/lib/chatContext.ts` — pas besoin de le maintenir séparément.
+
+<!-- Vercel deployment trigger: 2026-05-29T20:24:23Z -->
