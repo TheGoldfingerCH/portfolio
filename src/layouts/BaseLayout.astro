@@ -24,7 +24,7 @@ function localePath(loc: Locale) {
   return `/${loc}${currentPath === '/' ? '' : currentPath}`;
 }
 
-const chatbotEnabled = (process.env.CHATBOT_ENABLED ?? 'false') === 'true';
+const chatbotEnabled = Boolean(import.meta.env.PUBLIC_CHAT_API_URL);
 
 const jsonLd = {
   '@context': 'https://schema.org',

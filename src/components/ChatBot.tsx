@@ -31,6 +31,8 @@ export default function ChatBot({ locale }: Props) {
     if (open) inputRef.current?.focus();
   }, [open]);
 
+  const apiUrl = import.meta.env.PUBLIC_CHAT_API_URL || '/api/chat';
+
   async function send() {
     const trimmed = input.trim();
     if (!trimmed || sending) return;
@@ -40,7 +42,7 @@ export default function ChatBot({ locale }: Props) {
     setInput('');
     setSending(true);
     try {
-      const res = await fetch('/api/chat', {
+      const res = await fetch(apiUrl, {
         method: 'POST',
         headers: { 'content-type': 'application/json' },
         body: JSON.stringify({
