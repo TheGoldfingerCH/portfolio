@@ -37,6 +37,18 @@ export const projects: Project[] = [
       de: 'Multi-Agenten-KI-System, das die Jobsuche automatisiert: Bewertung von Angeboten anhand mehrerer Dimensionen, Erstellung ATS-optimierter Lebensläufe und Einreichung von Bewerbungen via Playwright.',
     },
   },
+  {
+    id: 'llm-code-bench',
+    title: 'LLM Code Bench',
+    repo: 'https://github.com/TheGoldfingerCH/llm-code-bench',
+    status: 'live',
+    tags: ['Python', 'LLM', 'Benchmark', 'Plotly', 'CLI'],
+    summary: {
+      fr: "Outil de benchmark mesurant la capacité des LLMs à restituer du code précis dans de longs contextes : teste le rappel positionnel en demandant aux modèles de reproduire verbatim des fonctions JS/Python, avec scoring automatique ligne par ligne et dashboards comparatifs via Plotly.",
+      en: "Benchmark tool measuring LLMs' ability to accurately recall specific code in long contexts: tests positional recall by asking models to reproduce JS/Python function definitions verbatim, with automated line-by-line scoring and comparative Plotly dashboards.",
+      de: 'Benchmark-Tool zur Messung der Fähigkeit von LLMs, spezifischen Code in langen Kontexten präzise abzurufen: testet Positionsrückruf durch wörtliche Reproduktion von JS/Python-Funktionen, mit automatischem Zeilen-Scoring und vergleichenden Plotly-Dashboards.',
+    },
+  },
 ];
 
-export const upcomingProjectsCount = 3;
+export const upcomingProjectsCount = 2;

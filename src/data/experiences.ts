@@ -21,7 +21,7 @@ export const experiences: Experience[] = [
     },
     company: 'LTG-Academy',
     domain: 'ltg-academy.ch',
-    location: 'La Tour-de-Peilz (VD)',
+    location: 'Vevey (VD)',
     period: '2024 – 2025',
     bullets: {
       fr: [
