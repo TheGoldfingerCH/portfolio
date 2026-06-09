@@ -59,50 +59,60 @@ export const diplomas: Credential[] = [
 // Shorter certifications, courses and credentials.
 export const certifications: Credential[] = [
   {
+    id: 'mcp-advanced',
+    title: {
+      fr: 'Model Context Protocol: Advanced Topics',
+      en: 'Model Context Protocol: Advanced Topics',
+      de: 'Model Context Protocol: Advanced Topics',
+    },
+    institution: 'Anthropic Education',
+    domain: 'anthropic.com',
+    period: '2026',
+    verifyUrl: 'https://verify.skilljar.com/c/azwxi4ik4bdj',
+  },
+  {
+    id: 'building-with-claude-api',
+    title: {
+      fr: 'Building with the Claude API',
+      en: 'Building with the Claude API',
+      de: 'Building with the Claude API',
+    },
+    institution: 'Anthropic Education',
+    domain: 'anthropic.com',
+    period: '2026',
+    verifyUrl: 'https://verify.skilljar.com/c/wio75922ee55',
+  },
+  {
+    id: 'ai-fluency',
+    title: {
+      fr: 'AI Fluency: Framework & Foundations',
+      en: 'AI Fluency: Framework & Foundations',
+      de: 'AI Fluency: Framework & Foundations',
+    },
+    institution: 'Anthropic Education',
+    domain: 'anthropic.com',
+    period: '2026',
+    verifyUrl: 'https://verify.skilljar.com/c/2f7aj2o6zggo',
+  },
+  {
+    id: 'claude-code-in-action',
+    title: {
+      fr: 'Claude Code in Action',
+      en: 'Claude Code in Action',
+      de: 'Claude Code in Action',
+    },
+    institution: 'Anthropic Education',
+    domain: 'anthropic.com',
+    period: '2026',
+    verifyUrl: 'https://verify.skilljar.com/c/njghzbqik4xn',
+  },
+  {
     id: 'claude-code-101',
     title: { fr: 'Claude Code 101', en: 'Claude Code 101', de: 'Claude Code 101' },
     institution: 'Anthropic Education',
     domain: 'anthropic.com',
     period: '2026',
     verifyUrl: 'https://verify.skilljar.com/c/hh6y3derud4z',
-  },
-  {
-    id: 'claude-101',
-    title: { fr: 'Claude 101', en: 'Claude 101', de: 'Claude 101' },
-    institution: 'Anthropic Education',
-    domain: 'anthropic.com',
-    period: '2026',
-    verifyUrl: 'https://verify.skilljar.com/c/49egzcg24ra2',
-  },
-  {
-    id: 'google-ads',
-    title: {
-      fr: 'Google Ads Spécialiste',
-      en: 'Google Ads Specialist',
-      de: 'Google Ads Spezialist',
-    },
-    institution: 'Google Ads Academy',
-    domain: 'google.com',
-    period: '2018',
-  },
-  {
-    id: 'markom',
-    title: { fr: 'MarKom', en: 'MarKom', de: 'MarKom' },
-    institution: 'SAWI',
-    domain: 'sawi.ch',
-    logoSrc: '/companies/sawi.png',
-    period: '2013 – 2014',
-  },
-  {
-    id: 'asfc',
-    title: {
-      fr: "Gestion du temps d'une équipe",
-      en: 'Team time management',
-      de: 'Zeitmanagement im Team',
-    },
-    institution: 'ASFC',
-    domain: 'asfc.ch',
-    period: '2013',
   },
 ];
 
