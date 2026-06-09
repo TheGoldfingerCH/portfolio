@@ -40,7 +40,7 @@ export const projects: Project[] = [
   {
     id: 'llm-code-bench',
     title: 'LLM Code Bench',
-    repo: 'https://github.com/TheGoldfingerCH/llm-code-bench',
+    url: 'https://github.com/TheGoldfingerCH/llm-code-bench',
     status: 'live',
     tags: ['Python', 'LLM', 'Benchmark', 'Plotly', 'CLI'],
     summary: {
