@@ -38,6 +38,19 @@ export const projects: Project[] = [
     },
   },
   {
+    id: 'mcp-imap',
+    title: 'MCP IMAP',
+    url: 'https://github.com/TheGoldfingerCH/mcp-imap',
+    repo: 'https://github.com/TheGoldfingerCH/mcp-imap',
+    status: 'live',
+    tags: ['Python', 'MCP', 'IMAP', 'SMTP', 'Claude Desktop', 'Hermes'],
+    summary: {
+      fr: "Serveur MCP minimal pour lire et envoyer des emails via IMAP/SMTP — zéro dépendance externe (stdlib Python uniquement). Compatible avec Claude Desktop, Cursor, Hermes et tout client MCP. Fonctionne avec n'importe quel fournisseur mail (Infomaniak, Gmail, iCloud, Proton Bridge…).",
+      en: 'Minimal MCP server for reading and sending emails via IMAP/SMTP — zero external dependencies (Python stdlib only). Compatible with Claude Desktop, Cursor, Hermes and any MCP client. Works with any mail provider (Infomaniak, Gmail, iCloud, Proton Bridge…).',
+      de: 'Minimaler MCP-Server zum Lesen und Senden von E-Mails über IMAP/SMTP — ohne externe Abhängigkeiten (nur Python-Stdlib). Kompatibel mit Claude Desktop, Cursor, Hermes und jedem MCP-Client. Funktioniert mit jedem Mail-Anbieter (Infomaniak, Gmail, iCloud, Proton Bridge…).',
+    },
+  },
+  {
     id: 'llm-code-bench',
     title: 'LLM Code Bench',
     url: 'https://github.com/TheGoldfingerCH/llm-code-bench',

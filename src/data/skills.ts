@@ -41,6 +41,8 @@ export const skills: SkillGroup[] = [
       { name: 'Prophet · RNN', icon: 'prophet', color: '#0A66C2' },
       { name: 'OpenAI · Claude', icon: 'openai', color: '#10A37F' },
       { name: 'Claude Code', icon: 'anthropic', color: '#D97757' },
+      { name: 'MCP', color: '#D97757' },
+      { name: 'Hermes', color: '#7C3AED' },
       { name: 'Cursor', icon: 'cursor', color: '#d4d4d4' },
       { name: 'Ollama', icon: 'ollama', color: '#a1a1aa' },
       { name: 'LM Studio', icon: 'lmstudio', color: '#4338CA' },
