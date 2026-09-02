@@ -61,6 +61,7 @@ export const ui = {
         lead: 'Une sélection de projets personnels, mis en ligne ou en cours de développement.',
         moreSoon: 'D’autres projets seront publiés bientôt.',
         view: 'Voir le site',
+        viewModel: 'Voir le modèle',
         code: 'Code',
         status: {
           live: 'En ligne',
@@ -78,6 +79,7 @@ export const ui = {
         emailLabel: 'E-mail',
         linkedinLabel: 'LinkedIn',
         githubLabel: 'GitHub',
+        huggingfaceLabel: 'Hugging Face',
         location: 'La Tour-de-Peilz · Suisse romande',
       },
     },
@@ -154,6 +156,7 @@ export const ui = {
         lead: 'A selection of personal projects, live or in active development.',
         moreSoon: 'More projects are coming online soon.',
         view: 'Visit site',
+        viewModel: 'View model',
         code: 'Code',
         status: {
           live: 'Live',
@@ -171,6 +174,7 @@ export const ui = {
         emailLabel: 'Email',
         linkedinLabel: 'LinkedIn',
         githubLabel: 'GitHub',
+        huggingfaceLabel: 'Hugging Face',
         location: 'La Tour-de-Peilz · French-speaking Switzerland',
       },
     },
@@ -247,6 +251,7 @@ export const ui = {
         lead: 'Eine Auswahl persönlicher Projekte, live oder in aktiver Entwicklung.',
         moreSoon: 'Weitere Projekte folgen in Kürze.',
         view: 'Website besuchen',
+        viewModel: 'Modell ansehen',
         code: 'Code',
         status: {
           live: 'Live',
@@ -264,6 +269,7 @@ export const ui = {
         emailLabel: 'E-Mail',
         linkedinLabel: 'LinkedIn',
         githubLabel: 'GitHub',
+        huggingfaceLabel: 'Hugging Face',
         location: 'La Tour-de-Peilz · Westschweiz',
       },
     },

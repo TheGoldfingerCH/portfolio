@@ -5,6 +5,7 @@ export const profile = {
   links: {
     linkedin: 'https://www.linkedin.com/in/nicolas-geng/',
     github: 'https://github.com/TheGoldfingerCH',
+    huggingface: 'https://huggingface.co/GoldfingerCH',
     cv: {
       fr: '/cv/CV_Nicolas_Geng_FR.pdf',
       en: '/cv/CV_Nicolas_Geng_EN.pdf',

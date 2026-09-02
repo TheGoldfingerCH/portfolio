@@ -31,7 +31,7 @@ const t = useTranslations(locale);
             ]}>
               <span class:list={[
                 'inline-block w-1.5 h-1.5 rounded-full',
-                project.status === 'live' ? 'bg-emerald-400' : 'bg-zinc-400',
+                project.status === 'live' ? 'bg-emerald-400' : project.status === 'wip' ? 'bg-amber-400' : 'bg-zinc-400',
               ]}></span>
               {t.sections.projects.status[project.status]}
             </span>
@@ -43,18 +43,20 @@ const t = useTranslations(locale);
             {project.tags.map((tag) => <span class="chip chip-muted">{tag}</span>)}
           </div>
 
-          <div class="flex gap-2">
-            {project.url && (
-              <a href={project.url} target="_blank" rel="noreferrer noopener" class="btn btn-primary text-sm">
-                {t.sections.projects.view} ↗
-              </a>
-            )}
-            {project.repo && (
-              <a href={project.repo} target="_blank" rel="noreferrer noopener" class="btn btn-ghost text-sm">
-                {t.sections.projects.code}
-              </a>
-            )}
-          </div>
+          {(project.url || project.repo) && (
+            <div class="flex gap-2">
+              {project.url && (
+                <a href={project.url} target="_blank" rel="noreferrer noopener" class="btn btn-primary text-sm">
+                  {project.linkKind === 'model' ? t.sections.projects.viewModel : t.sections.projects.view} ↗
+                </a>
+              )}
+              {project.repo && (
+                <a href={project.repo} target="_blank" rel="noreferrer noopener" class="btn btn-ghost text-sm">
+                  {t.sections.projects.code}
+                </a>
+              )}
+            </div>
+          )}
         </article>
       ))}
 

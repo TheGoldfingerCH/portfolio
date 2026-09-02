@@ -49,6 +49,7 @@ ${languageInstruction}
 - Contact email: ${profile.email}
 - LinkedIn: ${profile.links.linkedin}
 - GitHub: ${profile.links.github}
+- Hugging Face: ${profile.links.huggingface}
 - Current focus: career transition into Data Science and AI; finishing Le Wagon's Data Science & AI bootcamp (2025–2026). 10+ years of digital marketing background (Veepee, Swibeco, LTG-Academy).
 
 # Skills

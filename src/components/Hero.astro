@@ -29,10 +29,12 @@ const t = useTranslations(locale);
         <a href="#projects" class="btn btn-ghost">{t.hero.ctaProjects}</a>
       </div>
 
-      <div class="mt-10 flex items-center gap-5 text-sm text-[color:var(--color-text-muted)]">
+      <div class="mt-10 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-[color:var(--color-text-muted)]">
         <a href={profile.links.linkedin} target="_blank" rel="noreferrer noopener" class="hover:text-white transition">LinkedIn</a>
         <span aria-hidden="true">·</span>
         <a href={profile.links.github} target="_blank" rel="noreferrer noopener" class="hover:text-white transition">GitHub</a>
+        <span aria-hidden="true">·</span>
+        <a href={profile.links.huggingface} target="_blank" rel="noreferrer noopener" class="hover:text-white transition">Hugging Face</a>
         <span aria-hidden="true">·</span>
         <a href={`mailto:${profile.email}`} class="hover:text-white transition">{profile.email}</a>
       </div>

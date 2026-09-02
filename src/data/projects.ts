@@ -5,6 +5,8 @@ export type Project = {
   title: string;
   url?: string;
   repo?: string;
+  /** Primary link label. Defaults to a generic “visit site”. */
+  linkKind?: 'site' | 'model';
   status: 'live' | 'wip' | 'archived';
   tags: string[];
   summary: Record<Locale, string>;
@@ -38,6 +40,19 @@ export const projects: Project[] = [
     },
   },
   {
+    id: 'qwen38-nvfp4',
+    title: 'Qwen3.8-27B NVFP4',
+    url: 'https://huggingface.co/GoldfingerCH/Qwen3.8-27B-abliterated-NVFP4',
+    linkKind: 'model',
+    status: 'live',
+    tags: ['Qwen3.8', 'NVFP4', 'vLLM', 'DGX Spark', 'llm-compressor', 'Hugging Face'],
+    summary: {
+      fr: "Checkpoint NVFP4 (compressed-tensors, ~18 Go) d’un Qwen3.8-27B, packagé pour vLLM sur NVIDIA Blackwell / DGX Spark (GB10). Édition en espace des poids (abliteration des couches 18–51, pas un fine-tune), puis quantification oneshot avec llm-compressor. Cible : inférence locale sur Spark, contexte jusqu’à 262k avec KV cache FP8.",
+      en: 'NVFP4 (compressed-tensors, ~18 GB) checkpoint of Qwen3.8-27B, packaged for vLLM on NVIDIA Blackwell / DGX Spark (GB10). Weight-space edit (abliteration on layers 18–51, not a fine-tune), then oneshot quantization with llm-compressor. Aimed at local Spark inference with up to 262k context and an FP8 KV cache.',
+      de: 'NVFP4-Checkpoint (compressed-tensors, ~18 GB) von Qwen3.8-27B, paketiert für vLLM auf NVIDIA Blackwell / DGX Spark (GB10). Gewichtsraum-Edit (Abliteration der Schichten 18–51, kein Fine-Tune), dann Oneshot-Quantisierung mit llm-compressor. Ziel: lokale Inferenz auf Spark, Kontext bis 262k mit FP8-KV-Cache.',
+    },
+  },
+  {
     id: 'mcp-imap',
     title: 'MCP IMAP',
     url: 'https://github.com/TheGoldfingerCH/mcp-imap',
@@ -63,6 +78,17 @@ export const projects: Project[] = [
       de: 'Benchmark-Tool zur Messung der Fähigkeit von LLMs, spezifischen Code in langen Kontexten präzise abzurufen: testet Positionsrückruf durch wörtliche Reproduktion von JS/Python-Funktionen, mit automatischem Zeilen-Scoring und vergleichenden Plotly-Dashboards.',
     },
   },
+  {
+    id: 'french-llm-eval',
+    title: 'Éval LLM FR',
+    status: 'wip',
+    tags: ['LLM', 'Benchmark', 'Français', 'Évaluation'],
+    summary: {
+      fr: "Benchmark d’évaluation de LLMs en français — en cours de création. Jeu de tests, protocole et scoring seront publiés ici dès qu’ils seront disponibles.",
+      en: 'French-language LLM evaluation benchmark — currently being built. Test set, protocol and scoring will be published here as soon as they are ready.',
+      de: 'Französisches LLM-Evaluations-Benchmark — in Erstellung. Testdatensatz, Protokoll und Scoring werden hier veröffentlicht, sobald sie vorliegen.',
+    },
+  },
 ];
 
-export const upcomingProjectsCount = 2;
+export const upcomingProjectsCount = 0;
