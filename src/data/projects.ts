@@ -6,7 +6,7 @@ export type Project = {
   url?: string;
   repo?: string;
   /** Primary link label. Defaults to a generic “visit site”. */
-  linkKind?: 'site' | 'model';
+  linkKind?: 'site' | 'model' | 'dataset';
   status: 'live' | 'wip' | 'archived';
   tags: string[];
   summary: Record<Locale, string>;
@@ -53,6 +53,19 @@ export const projects: Project[] = [
     },
   },
   {
+    id: 'french-llm-eval',
+    title: 'Éval refus FR',
+    url: 'https://huggingface.co/datasets/GoldfingerCH/qwen38-27B-abliterated-refusal-eval-fr',
+    linkKind: 'dataset',
+    status: 'live',
+    tags: ['LLM', 'Benchmark', 'Français', 'Refusal', 'Hugging Face'],
+    summary: {
+      fr: "Jeu d’évaluation bilingue (FR/EN) pour mesurer le refus vs la conformité d’un LLM après abliteration. Traduction française des prompts (GX10 qwen-coder, translate-only), labels Qwen3Guard, sans completions assistant — ce n’est pas un corpus de fine-tune. Dédupliqué, publié sur Hugging Face.",
+      en: 'Bilingual (FR/EN) evaluation set to measure LLM refusal vs compliance after abliteration. French translation of user prompts (GX10 qwen-coder, translate-only), Qwen3Guard labels, no assistant completions — not a fine-tune corpus. Deduplicated and published on Hugging Face.',
+      de: 'Zweisprachiges (FR/EN) Evaluationsset zur Messung von Verweigerung vs. Compliance eines LLM nach Abliteration. Französische Übersetzung der Prompts (GX10 qwen-coder, nur Übersetzung), Qwen3Guard-Labels, ohne Assistant-Completions — kein Fine-Tune-Korpus. Dedupliziert, auf Hugging Face veröffentlicht.',
+    },
+  },
+  {
     id: 'mcp-imap',
     title: 'MCP IMAP',
     url: 'https://github.com/TheGoldfingerCH/mcp-imap',
@@ -76,17 +89,6 @@ export const projects: Project[] = [
       fr: "Outil de benchmark mesurant la capacité des LLMs à restituer du code précis dans de longs contextes : teste le rappel positionnel en demandant aux modèles de reproduire verbatim des fonctions JS/Python, avec scoring automatique ligne par ligne et dashboards comparatifs via Plotly.",
       en: "Benchmark tool measuring LLMs' ability to accurately recall specific code in long contexts: tests positional recall by asking models to reproduce JS/Python function definitions verbatim, with automated line-by-line scoring and comparative Plotly dashboards.",
       de: 'Benchmark-Tool zur Messung der Fähigkeit von LLMs, spezifischen Code in langen Kontexten präzise abzurufen: testet Positionsrückruf durch wörtliche Reproduktion von JS/Python-Funktionen, mit automatischem Zeilen-Scoring und vergleichenden Plotly-Dashboards.',
-    },
-  },
-  {
-    id: 'french-llm-eval',
-    title: 'Éval LLM FR',
-    status: 'wip',
-    tags: ['LLM', 'Benchmark', 'Français', 'Évaluation'],
-    summary: {
-      fr: "Benchmark d’évaluation de LLMs en français — en cours de création. Jeu de tests, protocole et scoring seront publiés ici dès qu’ils seront disponibles.",
-      en: 'French-language LLM evaluation benchmark — currently being built. Test set, protocol and scoring will be published here as soon as they are ready.',
-      de: 'Französisches LLM-Evaluations-Benchmark — in Erstellung. Testdatensatz, Protokoll und Scoring werden hier veröffentlicht, sobald sie vorliegen.',
     },
   },
 ];

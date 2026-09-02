@@ -47,7 +47,11 @@ const t = useTranslations(locale);
             <div class="flex gap-2">
               {project.url && (
                 <a href={project.url} target="_blank" rel="noreferrer noopener" class="btn btn-primary text-sm">
-                  {project.linkKind === 'model' ? t.sections.projects.viewModel : t.sections.projects.view} ↗
+                  {project.linkKind === 'model'
+                    ? t.sections.projects.viewModel
+                    : project.linkKind === 'dataset'
+                      ? t.sections.projects.viewDataset
+                      : t.sections.projects.view} ↗
                 </a>
               )}
               {project.repo && (

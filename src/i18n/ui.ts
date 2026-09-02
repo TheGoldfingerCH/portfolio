@@ -62,6 +62,7 @@ export const ui = {
         moreSoon: 'D’autres projets seront publiés bientôt.',
         view: 'Voir le site',
         viewModel: 'Voir le modèle',
+        viewDataset: 'Voir le dataset',
         code: 'Code',
         status: {
           live: 'En ligne',
@@ -157,6 +158,7 @@ export const ui = {
         moreSoon: 'More projects are coming online soon.',
         view: 'Visit site',
         viewModel: 'View model',
+        viewDataset: 'View dataset',
         code: 'Code',
         status: {
           live: 'Live',
@@ -252,6 +254,7 @@ export const ui = {
         moreSoon: 'Weitere Projekte folgen in Kürze.',
         view: 'Website besuchen',
         viewModel: 'Modell ansehen',
+        viewDataset: 'Dataset ansehen',
         code: 'Code',
         status: {
           live: 'Live',
